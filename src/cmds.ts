@@ -109,6 +109,7 @@ export function projectConfig() {
   if (workspace.workspaceFolders.length > 0) {
     const folder = workspace.workspaceFolders[0];
     openConfigFile(path.join(Uri.parse(folder.uri).fsPath, '.clangd'));
+    window.showWarningMessage(path.join(Uri.parse(folder.uri).fsPath, '.clangd'));
   } else {
     window.showWarningMessage('No project is open');
   }
