@@ -14,6 +14,7 @@ import {
   StaticFeature,
   TextEdit,
   services,
+  window,
   workspace,
 } from 'coc.nvim';
 import { Config } from './config';
@@ -76,6 +77,7 @@ export class Ctx {
     };
     if (this.config.compilationDatabasePath) {
       initializationOptions.compilationDatabasePath = workspace.expand(this.config.compilationDatabasePath);
+      window.showWarnMessage(initializationOptions.compilationDatabasePath);
     } else if (this.config.compilationDatabaseCandidates.length) {
       const closest = this.closestCompilationDatabase(this.config.compilationDatabaseCandidates);
       if (closest) initializationOptions.compilationDatabasePath = closest;
