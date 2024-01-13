@@ -17,6 +17,8 @@ export async function activate(context: ExtensionContext): Promise<void> {
   if (service) {
     window.showWarningMessage("Looks like you've configured clangd in coc-settings.json, you should remove it to use coc-clangd");
     return;
+  }else{
+    window.showWarningMessage("hello,this is my plugin");
   }
 
   const clangdPath = await install.activate(context);
